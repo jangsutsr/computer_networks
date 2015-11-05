@@ -8,7 +8,7 @@ In this programming assignment, a simplified TCP­like transport layer protocol 
 * Both classes would record relevant information on log files each time a packet is sent or received.
 
 # Usage
-First of all, open link emulator and specify a series of options. For example, `./newudpl -B50 -l10 -d0.25`. Details can be found [here](http://www.cs.columbia.edu/~hgs/research/projects/newudpl/newudpl­1.4/newudpl.html)
+First of all, open link emulator and specify a series of options. For example, `./newudpl -B50 -l10 -d0.25`. Details can be found [here](http://www.cs.columbia.edu/~hgs/research/projects/newudpl/)
 
 Then run `TCP_recv.py`, the usage of which is `python TCP_recv.py <filename> <listening_port> <sender_IP> <sender_port> <log_filename>`.
 
@@ -24,12 +24,14 @@ Every packet, including ACKs and FINs, follows the standard TCP header structure
 
 ## States Visited 
 `Sender` would visit 4 states:
+
 1. If there are data from layer above, format and send the data to the layer below;
 2. If an ACK is received, deal with it and manipulate corresponding attributes;
 3. If timeout, resend the first unACKed packet and restart the timer;
 4. If all data from layer above are sent and ACKed, close the connection and terminate the program.
 
 `Receiver` would visit 2 states:
+
 1. If data packet is received and verified, store it to the buffer or send it to upper layer, and reply with appropriate ACK;
 2. If FIN packet is received and verified, reply with ACK, close the connection and terminate the program. 
 
