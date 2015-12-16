@@ -4,12 +4,12 @@ This is the implementation of simplified version of distributed Bellman-Fort alg
 # Message Protocol
 There are three types of messages: route update, link up and link down. The syntaxes are as follow:
 * route update:
-``
+```
 ROUTE UPDATE
 <host IP>:<host port>
 <node IP>,<node port>,<node path cost>
 ...
-``
+```
 * link up:
 ``
 LINK UP
