@@ -30,7 +30,7 @@ LINK DOWN
 * `LINKUP` `<ip_address> <port>`. This allows the user to restore the link to the mentioned
 neighbor to the original value after it was destroyed by a `LINKDOWN`.
 * `SHOWRT`. This allows the user to view the current routing table of the client. It should indicate for each other client in the network, the cost and neighbor used to reach that client.
-* `CLOSE`. With this command the client process should close/shutdown. Link failures is also assumed when a client doesn’t receive a `ROUTE UPDATE` message from a neighbor (i.e., hasn’t ‘heard’ from a neighbor) for `3*TIMEOUT` seconds. This happens when the neighbor client crashes or if the user calls the `CLOSE` command for it. When this happens, the link cost should be set to infinity and the client should stop sending ROUTE UPDATE messages to that neighbor. The link is assumed to be dead until the process comes up and a `ROUTE UPDATE` message is received again from that neighbor.
+* `CLOSE`. With this command the client process should close/shutdown. Link failures is also assumed when a client doesn’t receive a `ROUTE UPDATE` message from a neighbor (i.e., hasn’t ‘heard’ from a neighbor) for `3 * TIMEOUT` seconds. This happens when the neighbor client crashes or if the user calls the `CLOSE` command for it. When this happens, the link cost should be set to infinity and the client should stop sending `ROUTE UPDATE` messages to that neighbor. The link is assumed to be dead until the process comes up and a `ROUTE UPDATE` message is received again from that neighbor.
 
 # Use Case
 * Open up routers. For example, `python router.py 4115 3 128.59.196.2 4116 5.0 128.59.196.2 4118 30.0`
