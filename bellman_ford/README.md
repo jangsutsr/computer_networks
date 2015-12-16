@@ -11,15 +11,15 @@ ROUTE UPDATE
 ...
 ```
 * link up:
-``
+```
 LINK UP
 <host IP>:<host port>
-``
+```
 * link down:
-``
+```
 LINK DOWN
 <host IP>:<host port>
-``
+```
 # Notices
 * The topology of the router graph is considered constant. That is, each router knows all its neighbors ahead of time. The argument to `router.py`, therefore, should be carefully configured to ensure two end points of each link learns exactly the same link cost.
 * Set the timeout value of each router to an appropriate value, 3 sec for example, to avoid any potential conflictions.
@@ -35,11 +35,11 @@ neighbor to the original value after it was destroyed by a `LINKDOWN`.
 # Use Case
 * Open up routers. For example, `python router.py 4115 3 128.59.196.2 4116 5.0 128.59.196.2 4118 30.0`
 * After some time, check the converges of each router. For example, type `SHOWRT` on the above router would display:
-``
+```
 <Current Time>Distance vector list is:
 Destination = 128.59.196.2:4116, Cost = 5.0, Link = (128.59.196.2:4116) 
 Destination = 128.59.196.2:4118, Cost = 30.0, Link = (128.59.196.2:4118)
-``
+```
 * When all nodes converge, try link down command. For example, `LINKDOWN 128.59.196.2 4116`. Wait for a while to see if routers' dv tables change accrodingly.
 * Try link up by calling `LINKUP 128.59.196.2 4116`.
 * Close the router by calling `CLOSE`, wait for reasonable time to see the effect.
